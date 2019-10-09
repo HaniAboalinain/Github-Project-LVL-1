@@ -1,11 +1,28 @@
 import React, { Component } from 'react';
+import Table from "./Table"
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default class Repo extends Component {
+
+
+
   render() {
+    const TableStyle = {
+
+      border: "1px black solid "
+    
+    
+    }
     return (
-      <div style={{ border: '3px red solid' }}>
-        <h6>Repo</h6>
+      <div >
+        <Table style={this.TableStyle} />
+        
+       
+
       </div>
     );
   }
+  
 }
+

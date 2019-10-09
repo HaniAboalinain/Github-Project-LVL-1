@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import Add from "./components/Add.js"
+import Repos from "./components/Repo"
+
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Repo from './components/Repo';
 
 export default class App extends Component {
   state = {
@@ -19,8 +25,11 @@ export default class App extends Component {
   };
   render() {
     return (
-      <div style={{ border: 'black 1px solid' }}>
-        <h6>App</h6>
+      <div style={{  }}>
+        
+        <Add/>
+
+        <Repos/>
       </div>
     );
   }
