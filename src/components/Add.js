@@ -3,52 +3,111 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/js/dist/dropdown.js";
 
 export default class Add extends Component {
+  state = {
+    title: "",
+    language: "",
+    status: ""
+  };
+
+  onChange = e => this.setState({ 
+    [e.target.name]: e.target.value
+   });
+
+  bindNewRepo = () => {
+    this.props.addRepo(this.state);
+    this.setState({
+      title: "",
+      status: "",
+      language: ""
+    });
+  };
+
   render() {
     return (
       <div style={{ marginTop: "10px" }}>
         <form style={{ marginLeft: "10px" }}>
-          <div class="row">
-            <div class="col-md-3">
+          <div className="row">
+            <div className="col-md-3">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Repo Title"
+                name="title"
+                value={this.state.title}
+                onChange={this.onChange}
               />
             </div>
-            <div class="col-md-3">
+            <div className="col-md-3">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 placeholder="Repo Language"
+                name="language"
+                value={this.state.language}
+                onChange={this.onChange}
               />
             </div>
 
-            <div class="dropdown">
+            {/* <div className="dropdown">
               <a
-                class="btn btn-secondary dropdown-toggle mr-3"
+                className="btn btn-secondary dropdown-toggle mr-3"
                 href="#"
                 role="button"
                 id="dropdownMenuLink"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                onChange={this.onChange}
               >
                 Repos Status
-              </a>
+              </a> */}
 
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">
+              {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <option className="dropdown-item" href="#"
+                 name='public'
+                 value = {this.state.status}
+                 onChange = {this.onChange}
+                >
                   Public
-                </a>
-                <a class="dropdown-item" href="#">
+                </option>
+                <option className="dropdown-item" href="#"
+                  name='private'
+                  value = {this.state.status}
+                  onChange = {this.onChange}
+                >
                   Private
-                </a>
-              </div>
-              <button type="button" class="btn btn-success">
-                Success
+                </option>
+              </div> */}
+              
+
+
+
+
+
+
+
+
+
+
+              <select
+                defaultValue="Default"
+                name="status"
+                onChange={this.onChange}
+              > 
+                <option value="Default" disabled> Repo Status </option>
+                <option value="Private">Private</option>
+                <option value="Public">Public</option>
+              </select>
+
+              <button
+                type=""
+                className="btn btn-success"
+                onClick={this.bindNewRepo}
+              >
+                Add Repo
               </button>
             </div>
-          </div>
+          {/* </div> */}
         </form>
       </div>
     );

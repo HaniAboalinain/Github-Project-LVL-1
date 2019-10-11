@@ -1,65 +1,58 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Repos from "./Repo";
 
 
 export default class Table extends Component {
   render() {
+    // console.log(this.props.reposInfo.id);
+
+    const {reposInfo , delrepo} =this.props;
+
+
+
     return (
-      <div style={{ border: '3px' }} class="mt-3">
-        <table class="table">
-  <caption>List of Repos</caption>
-  <thead>
-    <tr>
-      <th scope="col">Number </th>
-      <th scope="col">Title</th>
-      <th scope="col">Repos Status</th>
-      <th scope="col">Check</th>
-      <th scope="col">is Private</th>
-      <th scope="col">Language</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><input type="checkBox" ></input></td>
-      <td>Otto</td>
-      <td><button class = "btn btn-danger ">Delete</button></td>
+  
       
+      <div className="mt-3">
 
-    </tr>
-    
+       <table className='table'>
 
-    <tr>
-      <th scope="row">2</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><input type="checkBox" ></input></td>
-      <td>Otto</td>
-      <td><button class = "btn btn-danger ">Delete</button></td>
+       <thead>
+   <tr>
+     <th scope="col">Number </th>
+     <th scope="col">Title</th>
+     <th scope="col">Repos Status</th>
+     <th scope="col">is Private</th>
+     <th scope="col">check</th>
+     <th scope="col">Language</th>
+     <th scope="col">Delete</th>
+   </tr>
+ </thead>
       
-
-    </tr>
-
-    <tr>
-      <th scope="row">3</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td><input type="checkBox" ></input></td>
-      <td>Otto</td>
-      <td><button class = "btn btn-danger ">Delete</button></td>
+       <tbody>
       
-
-    </tr>
-  </tbody>
-</table>
+      
+      
+       {reposInfo.map( (repo , index) => {
+         return( <Repos 
+         key={repo.id}
+         id={index+1}
+         title={repo.title}
+          status={repo.status}
+          isPrivate = {repo.isPrivate}
+          language={repo.language}
+          delrepo={delrepo} 
+          />
+         )
+         
+       } 
+       )}
        
-      </div>
+      </tbody>
+       </table>
+     </div>
+
     );
   }
 }

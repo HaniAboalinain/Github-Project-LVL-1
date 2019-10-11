@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Table from "./Table"
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,19 +8,23 @@ export default class Repo extends Component {
 
 
   render() {
-    const TableStyle = {
+    console.log(this.props.reposInfo);
 
-      border: "1px black solid "
-    
-    
-    }
+    const {key , id, title , status , isPrivate , language , delrepo} = this.props;
     return (
-      <div >
-        <Table style={this.TableStyle} />
-        
-       
 
-      </div>
+    <tr key= {key} >
+      <th scope="row">{id}</th> 
+      <td >{title}</td>
+      <td>{status}</td>
+      <td>{isPrivate}</td>
+      <td><input type="checkBox"></input></td>
+      <td>{language}</td>
+      <td><button className = "btn btn-danger " onClick={delrepo.bind(this,id )} >Delete</button></td>
+      
+
+    </tr>
+ 
     );
   }
   
