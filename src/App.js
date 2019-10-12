@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Add from "./components/Add.js"
 import Table from "./components/Table"
+// import uuid from "uuid";
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,14 +11,14 @@ export default class App extends Component {
   state = {
     repos: [
       {
-        id: 1,
+        id: "1",
         title: 'Array',
         status: 'Private',
         language: 'HTML',
         isPrivate: 'Yes'
       },
       {
-        id: 2,
+        id: "2",
         title: 'Object',
         status: 'Public',
         language: 'JavaScript',
@@ -25,7 +26,7 @@ export default class App extends Component {
         
       },
       {
-        id: 3,
+        id: "3",
         title: 'If statement',
         status: 'Public',
         language: 'React js',
@@ -33,7 +34,7 @@ export default class App extends Component {
         
       },
       {
-        id: 4,
+        id: "4",
         title: 'for loop',
         status: 'Private',
         language: 'C#',

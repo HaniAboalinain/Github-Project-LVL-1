@@ -37,7 +37,7 @@ export default class Table extends Component {
        {reposInfo.map( (repo , index) => {
          return( <Repos 
          key={repo.id}
-         id={index+1}
+         id={repo.id}
          title={repo.title}
           status={repo.status}
           isPrivate = {repo.isPrivate}

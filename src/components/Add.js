@@ -13,7 +13,17 @@ export default class Add extends Component {
     [e.target.name]: e.target.value
    });
 
-  bindNewRepo = () => {
+  //  onSubmit = e => {
+  //    e.preventDefault();
+  //    this.props.addRepo(this.state);
+  //    this.setState({
+  //     title: "",
+  //     status: "",
+  //     language: ""
+  //   });
+  //  }
+
+  AddNewRepo = () => {
     this.props.addRepo(this.state);
     this.setState({
       title: "",
@@ -24,8 +34,9 @@ export default class Add extends Component {
 
   render() {
     return (
+      
       <div style={{ marginTop: "10px" }}>
-        <form style={{ marginLeft: "10px" }}>
+        <form style={{ marginLeft: "10px" }} onSubmit="">
           <div className="row">
             <div className="col-md-3">
               <input
@@ -102,7 +113,7 @@ export default class Add extends Component {
               <button
                 type=""
                 className="btn btn-success"
-                onClick={this.bindNewRepo}
+                onClick={this.AddNewRepo}
               >
                 Add Repo
               </button>
